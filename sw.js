@@ -1,6 +1,6 @@
 // Offline cache: network first (always get the latest), fall back to cache when offline
-const CACHE = 'reel-words-v3';
-const ASSETS = ['./', './index.html', './css/style.css', './js/app.js', './js/db.js', './js/srs.js', './js/sync.js', './js/config.js', './manifest.webmanifest', './icon.svg'];
+const CACHE = 'reel-words-v4';
+const ASSETS = ['./', './index.html', './css/style.css', './js/app.js', './js/db.js', './js/srs.js', './js/sync.js', './js/config.js', './privacy.html', './manifest.webmanifest', './icon.svg'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting()));

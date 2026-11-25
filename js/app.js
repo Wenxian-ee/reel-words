@@ -511,7 +511,8 @@ const signInFormHTML = () => `
     <input class="input" type="email" name="email" required placeholder="you@example.com" autocomplete="email">
     <button class="btn primary">Send sign-in link</button>
   </form>
-  <p class="small muted signin-msg">We’ll email you a link — no password needed. Open it in this browser.</p>`;
+  <p class="small muted signin-msg">We’ll email you a link — no password needed. Open it in this browser.</p>
+  <p class="small muted" style="margin:4px 0 0">By signing in, you agree to our <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>`;
 
 function accountPanelHTML() {
   if (!sync.enabled) return '';
@@ -1126,6 +1127,18 @@ function viewSettings() {
           <dt><kbd>1</kbd>–<kbd>4</kbd></dt><dd>Grade: Again / Hard / Good / Easy</dd>
           <dt><kbd>P</kbd></dt><dd>Read the current card aloud</dd>
         </dl>
+      </section>
+
+      <section class="panel">
+        <h3>ABOUT</h3>
+        <div class="setting">
+          <div class="txt"><b>Privacy Policy</b><span>What we store and how to delete it</span></div>
+          <div class="ctrl"><a class="btn sm" href="privacy.html" target="_blank" rel="noopener">Read ${icon('external')}</a></div>
+        </div>
+        <div class="setting">
+          <div class="txt"><b>Open source</b><span>Report a bug or suggest a feature</span></div>
+          <div class="ctrl"><a class="btn sm" href="https://github.com/Wenxian-ee/reel-words" target="_blank" rel="noopener">GitHub ${icon('external')}</a></div>
+        </div>
       </section>
     </div>`;
 
