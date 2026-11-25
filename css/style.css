@@ -147,6 +147,13 @@ mark { background: var(--accent-soft); color: var(--accent); border-radius: 3px;
 .sync-dot.syncing, .sync-dot.loading { background: var(--star); animation: pulse 1s ease-in-out infinite alternate; }
 .sync-dot.error { background: var(--danger); }
 @keyframes pulse { to { opacity: .3; } }
+.lang-switch {
+  display: inline-flex; align-items: center; gap: 6px; justify-self: start;
+  border: 0; background: none; padding: 4px 6px; border-radius: 6px;
+  color: var(--faint); font-size: 12.5px;
+}
+.lang-switch:hover { color: var(--accent); background: var(--surface-3); }
+.lang-switch svg { width: 14px; height: 14px; }
 .signin-form { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
 .signin-form .input { flex: 1 1 220px; min-width: 0; }
 .signin-msg { margin: 8px 0 0; }

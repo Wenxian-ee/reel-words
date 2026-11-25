@@ -1,5 +1,7 @@
 # 🎬 Reel Words
 
+**👉 Try it: [reelwords.site](https://reelwords.site)**
+
 Save the words, phrases and lines you hear in English movies and TV shows, then review them with spaced repetition.
 
 Reel Words is plain HTML, CSS and JavaScript. It has no dependencies and no build step. Data is stored in the browser (IndexedDB).
@@ -15,6 +17,7 @@ Reel Words is plain HTML, CSS and JavaScript. It has no dependencies and no buil
 - **Review**: SM-2 spaced repetition in two directions (English → meaning or meaning → English). You can review a single title, and a free-practice mode leaves your schedule unchanged.
 - **Stats**: an activity heatmap, your streak, a breakdown by type, mastery progress, top titles and top tags.
 - **Data**: export JSON as a full backup, or CSV for Excel and Anki; import from JSON.
+- **Bilingual UI**: English and Chinese (简体中文); follows the browser language by default and can be switched in Settings.
 - **Polish**: light, dark or system theme; a mobile layout; works offline; installable as a PWA.
 
 ## Run locally
@@ -56,6 +59,9 @@ css/style.css         styles (light + dark themes)
 js/app.js             UI and interactions
 js/db.js              IndexedDB storage
 js/srs.js             spaced-repetition algorithm
+js/sync.js            cloud sync and accounts
+js/i18n.js            UI translations (en / zh)
+js/config.js          Supabase public settings
 sw.js                 offline cache
 manifest.webmanifest  PWA manifest
 ```

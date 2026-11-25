@@ -1,5 +1,7 @@
 // Spaced repetition (simplified SM-2)
 // Grades: 0 Again · 1 Hard · 2 Good · 3 Easy
+import { t } from './i18n.js';
+
 export const MIN = 60 * 1000;
 export const DAY = 24 * 60 * MIN;
 
@@ -36,12 +38,12 @@ export function previewInterval(srs, q) {
 }
 
 export function formatSpan(ms) {
-  if (ms < 60 * MIN) return Math.max(1, Math.round(ms / MIN)) + ' min';
-  if (ms < DAY) return Math.round(ms / (60 * MIN)) + ' h';
+  if (ms < 60 * MIN) return t('span.min', Math.max(1, Math.round(ms / MIN)));
+  if (ms < DAY) return t('span.h', Math.round(ms / (60 * MIN)));
   const d = Math.round(ms / DAY);
-  if (d < 30) return d + (d === 1 ? ' day' : ' days');
-  if (d < 365) return Math.round(d / 30) + ' mo';
-  return (d / 365).toFixed(1).replace(/\.0$/, '') + ' yr';
+  if (d < 30) return t('span.day', d);
+  if (d < 365) return t('span.mo', Math.round(d / 30));
+  return t('span.yr', (d / 365).toFixed(1).replace(/\.0$/, ''));
 }
 
 export function statusOf(srs) {

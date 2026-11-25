@@ -5,6 +5,7 @@
 // incrementally using a server-side timestamp cursor. Conflicts are resolved
 // per entry by last-write-wins on the client `updatedAt` timestamp.
 import { SUPABASE_URL, SUPABASE_KEY } from './config.js';
+import { t } from './i18n.js';
 
 const LIB = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/+esm';
 const PENDING_KEY = 'reel-words:sync:pending';
@@ -67,7 +68,7 @@ export async function init(h) {
       auth: { flowType: 'pkce', persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, storageKey: 'reel-words:auth' },
     });
   } catch {
-    setStatus('offline', 'Could not load the sync library');
+    setStatus('offline', t('sync.libFail'));
     return;
   }
 
@@ -81,13 +82,13 @@ export async function init(h) {
   if (params.has('code') || params.has('error') || params.has('error_description')) {
     history.replaceState(null, '', location.pathname + location.hash);
   }
-  if (linkError) hooks.onMessage?.(`Sign-in failed: ${linkError}`);
+  if (linkError) hooks.onMessage?.(t('sync.linkFailed', linkError));
 
   sb.auth.onAuthStateChange((event, session) => {
     const prev = user?.id;
     user = session?.user || null;
     if (user && user.id !== prev) {
-      hooks.onMessage?.(`Signed in as ${user.email}`);
+      hooks.onMessage?.(t('sync.signedIn', user.email));
       schedule(0);
     }
     if (!user) setStatus('signed-out');
