@@ -1,0 +1,11 @@
+{
+  "name": "Reel Words",
+  "short_name": "Reel Words",
+  "description": "Save and review the English you hear in movies and shows",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f4ef",
+  "theme_color": "#c2410c",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
